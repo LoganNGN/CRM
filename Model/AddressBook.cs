@@ -7,12 +7,47 @@ namespace CRM
     {
         #region private attributes
         private List<Contact> _contacts = new List<Contact>();
+        private List<Contact> contacts;
+
+        public AddressBook(List<Contact> contacts)
+        {
+            this.contacts = contacts;
+        }
+
+        public AddressBook()
+        {
+        }
         #endregion private attibutes
 
         #region public methods
         public void AddContact(Contact contactToAdd)
         {
             _contacts.Add(contactToAdd);
+        }
+
+        public void AddContacts(List<Contact> contacts)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool? DoesExist(Contact astier)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(Contact gauthier)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveContacts(Contact gauthier)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveContacts()
+        {
+            throw new NotImplementedException();
         }
 
         public List<Contact> Contacts
@@ -23,5 +58,9 @@ namespace CRM
             }
         }
         #endregion public methods
+        
+        
     }
+    public class ContactAlreadyExist : Exception { }
+    public class RemoveFailedException : Exception { }
 }

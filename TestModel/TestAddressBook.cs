@@ -74,6 +74,7 @@ namespace CRM
         [Test]
         public void AddContacts_DuplicateFound_ThrowException()
         {
+            //https://docs.nunit.org/articles/nunit/writing-tests/assertions/classic-assertions/Assert.Throws.html
             //given
             Contact gauthier = new Contact("Gauthier", "Jean-Paul", new DateTime(2020, 12, 16), "espagnole", "jp@gauthier.com");
             _addressBook.AddContacts(new List<Contact> { gauthier });
@@ -94,7 +95,7 @@ namespace CRM
             _addressBook.AddContacts(new List<Contact> { gauthier, astier });
 
             //when
-            _addressBook.RemoveContacts(gauthier);
+            _addressBook.Remove(gauthier);
 
             //then
             Assert.IsTrue(_addressBook.DoesExist(astier));
@@ -104,6 +105,7 @@ namespace CRM
         [Test]
         public void RemoveContacts_ContactDoesNotExist_ThrowException()
         {
+            //https://docs.nunit.org/articles/nunit/writing-tests/assertions/classic-assertions/Assert.Throws.html
             //given
             Contact astier = new Contact("Astier", "Alexandre", new DateTime(1976, 05, 12), "française", "alex@astier.fr");
             Contact gauthier = new Contact("Gauthier", "Jean-Paul", new DateTime(2020, 12, 16), "espagnole", "jp@gauthier.com");
